@@ -18,7 +18,7 @@ public class FilmsController {
 
     @RequestMapping("/films/{id}")
     public Film getFilm(@PathVariable long id) throws NotFoundException {
-        Film film  = filmsMap.get(id);
+        Film film = filmsMap.get(id);
 
         if (film == null) {
             throw new NotFoundException("Invalid film ID.");
@@ -27,7 +27,7 @@ public class FilmsController {
         return film;
     }
 
-    @RequestMapping(value = "/films",  method = RequestMethod.POST)
+    @RequestMapping(value = "/films", method = RequestMethod.POST)
     public void postFilm(@RequestBody Film film) {
         long id = film.getId();
         filmsMap.put(id, film);
